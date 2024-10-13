@@ -11,7 +11,11 @@ defineProps({
         <h1 class="text-center text-red-500">
             {{ name.toUpperCase() }} || User name - {{ $page.props.user.name }}
         </h1>
-        <h4 class="text-center bg-green-500 p-4 my-5">{{ $page.props.user.email }}gmail.com </h4>
+        <h4 class="text-center bg-green-500 p-4 my-5">{{ $page.props.user.email }} </h4>
+
+        <div>
+            <img style="width:200px;height:100px;" class=" my-10" :src="'storage/'+$page.props.user.avator" alt="">
+        </div>
 
         <Link
             :href="route('UserHome#about')"

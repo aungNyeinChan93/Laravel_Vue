@@ -39,8 +39,13 @@ class HandleInertiaRequests extends Middleware
         return array_merge(parent::share($request), [
             //
 
-            "test"=>"here we go handelerInertiaRequests share function",
-            "user"=>Auth::user()?? null,
+            "test" => "here we go handelerInertiaRequests share function",
+            // "user"=>Auth::user() ?? null,
+            "user" => function (): mixed {
+                return request()->user() ? request()->user()->only("name", "email","avator") : null;
+            },
+            // "auth" =>Auth::user() ?? null,
+
         ]);
     }
 }
